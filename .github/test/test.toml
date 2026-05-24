@@ -1,0 +1,6 @@
+[package]
+name = "my-project"
+version = "1.0.0"
+
+[dependencies]
+foo = "2.0"

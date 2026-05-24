@@ -1,0 +1,28 @@
+name: Test for TOML Reader Action
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read TOML
+        id: 'properties'
+        uses: Gu-ZT/toml-reader-action
+        with:
+          path: .github/test/test.toml
+          properties:
+            - package.name
+            - package.version
+            - dependencies.foo
+            - dependencies.bar # 不存在的字段
+
+      - name: Show properties
+        run: |
+          echo "Package: ${{ steps.properties.outputs.package }}"
+          echo "Package Name: ${{ steps.properties.outputs.package.name }}"
+          echo "Package Version: ${{ steps.properties.outputs.package.version }}"
+          echo "Dependency: ${{ steps.properties.outputs.dependencies }}"
+          echo "Dependency Foo: ${{ steps.properties.outputs.dependencies.foo }}"
+          echo "Dependency Bar: ${{ steps.properties.outputs.dependencies.bar }}"
