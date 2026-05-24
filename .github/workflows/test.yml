@@ -11,8 +11,8 @@ jobs:
         id: 'properties'
         uses: Gu-ZT/toml-reader-action
         with:
-          path: .github/test/test.toml
-          properties:
+          file: .github/test/test.toml
+          fields:
             - package.name
             - package.version
             - dependencies.foo
