@@ -17,6 +17,7 @@ function readField(parsedDoc, field) {
 
 try {
     const file = core.getInput('file');
+    const debug = core.getInput('debug') === 'true';
     const fields = core.getMultilineInput('fields');
     const doc = fs.readFileSync(file, {encoding: 'utf8'});
     const parsedDoc = parse(doc);
@@ -24,8 +25,14 @@ try {
     fields.forEach((field) => {
         value[field.replace('.', '-')] = readField(parsedDoc, field);
     });
+    if (debug) {
+        console.log('Parsed TOML document:', parsedDoc);
+    }
     for (let key in value) {
         core.setOutput(key, value[key]);
+        if (debug) {
+            console.log(`Set output ${key} to ${value[key]}`);
+        }
     }
 } catch (error) {
     core.setFailed(error.message);

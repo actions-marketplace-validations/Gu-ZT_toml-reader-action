@@ -14,6 +14,7 @@ jobs:
         id: 'properties'
         uses: Gu-ZT/toml-reader-action@main
         with:
+          debug: true
           file: .github/test/test.toml
           fields: |
             package.name

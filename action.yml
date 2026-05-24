@@ -10,6 +10,10 @@ inputs:
   fields:
     description: 'The fields inside the TOML file to read'
     required: true
+  debug:
+    description: 'Whether to enable debug mode (true/false)'
+    required: false
+    default: 'false'
 runs:
   using: 'node20'
   main: 'index.js'
