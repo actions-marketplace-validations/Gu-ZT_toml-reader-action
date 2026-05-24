@@ -23,7 +23,9 @@ try {
     const parsedDoc = parse(doc);
     const value = {};
     fields.forEach((field) => {
-        value[field.replace('.', '-')] = readField(parsedDoc, field);
+        value[field] = readField(parsedDoc, field);
+        value[field.replace('.', '-')] = value[field];
+        value[field.replace('.', '_')] = value[field];
     });
     if (debug) {
         console.log('Parsed TOML document:', parsedDoc);
