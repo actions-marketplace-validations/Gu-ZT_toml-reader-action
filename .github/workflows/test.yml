@@ -20,7 +20,7 @@ jobs:
             package.name
             package.version
             dependencies.foo
-            dependencies.bar # 不存在的字段
+            dependencies.bar
 
       - name: Show properties
         run: |
