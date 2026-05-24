@@ -17,15 +17,14 @@ function readField(parsedDoc, field) {
 
 try {
     const file = core.getInput('file');
+    const split = core.getInput('split');
     const debug = core.getInput('debug') === 'true';
     const fields = core.getMultilineInput('fields');
     const doc = fs.readFileSync(file, {encoding: 'utf8'});
     const parsedDoc = parse(doc);
     const value = {};
     fields.forEach((field) => {
-        value[field] = readField(parsedDoc, field);
-        value[field.replace('.', '-')] = value[field];
-        value[field.replace('.', '_')] = value[field];
+        value[field.replace('.', split)] = readField(parsedDoc, field);
     });
     if (debug) {
         console.log('Parsed TOML document:', parsedDoc);

@@ -10,6 +10,10 @@ inputs:
   fields:
     description: 'The fields inside the TOML file to read'
     required: true
+  split:
+    description: 'The character to split the field name (e.g., "_", "-")'
+    required: false
+    default: '_'
   debug:
     description: 'Whether to enable debug mode (true/false)'
     required: false
