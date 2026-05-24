@@ -1,0 +1,15 @@
+{
+  "name": "toml-reader-action",
+  "version": "1.0.0",
+  "author": "Gugle",
+  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "smol-toml": "^1.6.1"
+  }
+}

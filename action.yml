@@ -1,0 +1,18 @@
+name: 'TOML Reader'
+description: 'Read a specific field from a TOML file'
+branding:
+  icon: file-text
+  color: gray-dark
+inputs:
+  file:
+    description: 'The TOML file to read from'
+    required: true
+  fields:
+    description: 'The fields inside the TOML file to read'
+    required: true
+outputs:
+  value:
+    description: 'The data stored in `fields` inside `file`'
+runs:
+  using: 'node20'
+  main: 'index.js'
