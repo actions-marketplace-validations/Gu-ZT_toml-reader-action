@@ -12,11 +12,11 @@ jobs:
         uses: Gu-ZT/toml-reader-action
         with:
           file: .github/test/test.toml
-          fields:
-            - package.name
-            - package.version
-            - dependencies.foo
-            - dependencies.bar # 不存在的字段
+          fields: |
+            package.name
+            package.version
+            dependencies.foo
+            dependencies.bar # 不存在的字段
 
       - name: Show properties
         run: |
