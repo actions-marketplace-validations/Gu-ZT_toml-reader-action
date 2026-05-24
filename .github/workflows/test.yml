@@ -24,9 +24,7 @@ jobs:
       - name: Show properties
         run: |
           echo "outputs: ${{ steps.properties.outputs }}"
-          echo "Package: ${{ steps.properties.outputs.package }}"
-          echo "Package Name: ${{ steps.properties.outputs.package.name }}"
-          echo "Package Version: ${{ steps.properties.outputs.package.version }}"
-          echo "Dependency: ${{ steps.properties.outputs.dependencies }}"
-          echo "Dependency Foo: ${{ steps.properties.outputs.dependencies.foo }}"
-          echo "Dependency Bar: ${{ steps.properties.outputs.dependencies.bar }}"
+          echo "Package Name: ${{ steps.properties.outputs.package_name }}"
+          echo "Package Version: ${{ steps.properties.outputs.package_version }}"
+          echo "Dependency Foo: ${{ steps.properties.outputs.dependencies_foo }}"
+          echo "Dependency Bar: ${{ steps.properties.outputs.dependencies_bar }}"

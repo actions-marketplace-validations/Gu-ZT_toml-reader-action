@@ -21,7 +21,7 @@ try {
     const doc = fs.readFileSync(file, {encoding: 'utf8'});
     const parsedDoc = parse(doc);
     fields.forEach((field) => {
-        core.setOutput(field, readField(parsedDoc, field));
+        core.setOutput(field.replace('.', '-'), readField(parsedDoc, field));
     });
 } catch (error) {
     core.setFailed(error.message);
