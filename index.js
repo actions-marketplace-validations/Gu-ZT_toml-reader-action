@@ -5,9 +5,13 @@ import * as fs from 'fs';
 function readField(parsedDoc, field) {
     const path = field.split('.');
     let value = parsedDoc;
-    path.forEach((f) => {
-        value = value[f];
-    });
+    try {
+        path.forEach((f) => {
+            value = value[f];
+        });
+    } catch (_) {
+        value = undefined;
+    }
     return {path, value};
 }
 
