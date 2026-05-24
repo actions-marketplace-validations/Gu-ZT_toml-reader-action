@@ -20,9 +20,13 @@ try {
     const fields = core.getMultilineInput('fields');
     const doc = fs.readFileSync(file, {encoding: 'utf8'});
     const parsedDoc = parse(doc);
+    const value = {};
     fields.forEach((field) => {
-        core.setOutput(field.replace('.', '-'), readField(parsedDoc, field));
+        value[field.replace('.', '-')] = readField(parsedDoc, field);
     });
+    for (let key in value) {
+        core.setOutput(key, value[key]);
+    }
 } catch (error) {
     core.setFailed(error.message);
 }
