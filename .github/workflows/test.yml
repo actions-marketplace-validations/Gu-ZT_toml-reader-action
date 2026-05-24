@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Read TOML
         id: 'properties'
-        uses: Gu-ZT/toml-reader-action
+        uses: Gu-ZT/toml-reader-action@main
         with:
           file: .github/test/test.toml
           fields: |
