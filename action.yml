@@ -10,9 +10,6 @@ inputs:
   fields:
     description: 'The fields inside the TOML file to read'
     required: true
-outputs:
-  value:
-    description: 'The data stored in `fields` inside `file`'
 runs:
   using: 'node20'
   main: 'index.js'

@@ -35,7 +35,9 @@ try {
             }
         });
     });
-    core.setOutput('value', value);
+    for (let key in value) {
+        core.setOutput(key, value[key]);
+    }
 } catch (error) {
     core.setFailed(error.message);
 }

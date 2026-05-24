@@ -23,6 +23,7 @@ jobs:
 
       - name: Show properties
         run: |
+          echo "outputs: ${{ steps.properties.outputs }}"
           echo "Package: ${{ steps.properties.outputs.package }}"
           echo "Package Name: ${{ steps.properties.outputs.package.name }}"
           echo "Package Version: ${{ steps.properties.outputs.package.version }}"
